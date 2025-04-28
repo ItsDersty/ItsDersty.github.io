@@ -1,53 +1,247 @@
+/* Базовые стили */
 body {
+    font-family: sans-serif;
+    line-height: 1.6;
     margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #1a1a1a;
-    color: #ffffff;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
 }
 
-.container {
-    max-width: 800px;
-    margin: 50px auto;
+header, main, footer {
+    width: 100%;
+    max-width: 800px; /* Ограничиваем ширину для читаемости */
+    margin-bottom: 20px;
     text-align: center;
 }
 
-.title {
-    font-size: 2em;
-    color: #3498db;
+h1 {
+    color: #2c3e50;
 }
 
-.product-card {
-    background-color: #2c3e50;
-    padding: 20px;
-    margin: 20px;
+/* Стили контейнера карточек */
+#flashcard-container {
+    perspective: 1000px; /* Важно для 3D эффекта переворота */
+    margin-bottom: 20px;
+    height: 300px; /* Задаем фиксированную высоту для контейнера */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Стили самой карточки */
+.flashcard {
+    width: 90%;
+    max-width: 500px;
+    height: 280px; /* Немного меньше контейнера */
+    background-color: transparent;
+    cursor: pointer;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.product-card img {
-    max-width: 100%;
-    border-radius: 8px;
+.flashcard-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d; /* Сохраняем 3D пространство */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 10px;
 }
 
-.product-card h2 {
-    margin: 10px 0;
-    color: #3498db;
+/* Стили для передней и задней стороны */
+.flashcard-front, .flashcard-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden; /* Скрываем обратную сторону */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-size: 1.5em; /* Увеличим шрифт для читаемости */
 }
 
-.product-card p {
-    color: #bdc3c7;
-}
-
-.product-card button {
+/* Передняя сторона */
+.flashcard-front {
     background-color: #3498db;
-    color: #ffffff;
+    color: white;
+}
+
+/* Задняя сторона (изначально повернута) */
+.flashcard-back {
+    background-color: #2ecc71;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+/* Класс для перевернутой карточки */
+.flashcard.is-flipped .flashcard-inner {
+    transform: rotateY(180deg);
+}
+
+.cardtitle {
+    top: 8px;
+    left: 8px;
+    position: absolute;
+}
+
+/* Стили для кнопок управления */
+#controls {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* Расстояние между кнопками и счетчиком */
+}
+
+#controls button {
     padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: #3498db;
+    color: white;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.product-card button:hover {
+#controls button:hover {
     background-color: #2980b9;
+}
+
+#controls button:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+}
+
+#card-counter {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+/* Секция со списком формул */
+#formula-list {
+    margin-top: 30px;
+    text-align: left;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#formula-list h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+#formula-list ul {
+    list-style-type: none; /* Убираем маркеры */
+    padding: 0;
+}
+
+#formula-list li {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #ecf0f1;
+    border-radius: 4px;
+}
+
+#formula-list li strong {
+    color: #e74c3c; /* Выделяем формулу цветом */
+}
+
+
+/* Подвал */
+footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #ccc;
+    font-size: 0.9em;
+    color: #777;
+}
+
+footer a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* (Добавьте или измените стили, если необходимо) */
+
+#quiz-section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+    margin-top: 20px;
+}
+
+#quiz-section h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#answers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Адаптивная сетка */
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.answer-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.answer-button:hover {
+    background-color: #2980b9;
+}
+
+.answer-button:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+}
+
+#result {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+#next-question-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#score {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-top: 20px;
 }
