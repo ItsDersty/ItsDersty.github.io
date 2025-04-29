@@ -81,6 +81,14 @@ h1 {
     background-color: #2ecc71;
     color: white;
     transform: rotateY(180deg);
+
+    display: flex;
+    flex-direction: column;
+}
+
+.cardpicture {
+    border-radius: 8px;
+    max-height: 6em;
 }
 
 /* Класс для перевернутой карточки */
@@ -199,14 +207,14 @@ footer a:hover {
 }
 
 #answers {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Адаптивная сетка */
+    display: flex;
+    flex-direction: column;
     gap: 15px;
     margin-bottom: 20px;
 }
 
 .answer-button {
-    padding: 10px 20px;
+    padding: 20px;
     font-size: 1em;
     cursor: pointer;
     background-color: #3498db;
