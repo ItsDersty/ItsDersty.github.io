@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Физика: Интерактивные Карточки</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Интерактивные карточки по Физике</h1>
+        <p>Изучайте формулы и понятия. Кликните на карточку, чтобы увидеть ответ.</p>
+        <h6>Примечание: Этот сайт создан для AI Hackathon.
+            ИИ (ChatGPT) использовался для генерации примеров вопросов и ответов.</h6>
+        <!-- Примечание: Этот сайт создан для AI Hackathon. -->
+        <!-- ИИ (ChatGPT) использовался для генерации примеров карточек и помощи в отладке кода. -->
+    </header>
+
+    <main>
+        <div id="flashcard-container">
+            <div class="flashcard">
+                <div class="flashcard-inner">
+                    <div class="flashcard-front">
+                        <!-- Содержимое будет загружено через JS -->
+                        Загрузка...
+                    </div>
+                    <div class="flashcard-back">
+                        <!-- Содержимое будет загружено через JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="controls">
+            <button id="prev-button">← Назад</button>
+            <span id="card-counter">1 / N</span>
+            <button id="next-button">Вперед →</button>
+            <!-- Можно добавить кнопку "Перемешать" (Shuffle) как доп. фичу -->
+        </div>
+
+
+
+        <header>
+            <h1>Интерактивный тест по Физике</h1>
+            <p>Проверьте свои знания. Выберите правильный ответ.</p>
+        </header>
+    
+        <main>
+            <section id="quiz-section">
+                <h2 id="question">Здесь будет вопрос...</h2>
+                <div id="answers">
+                    <button class="answer-button" data-index="0">Ответ 1</button>
+                    <button class="answer-button" data-index="1">Ответ 2</button>
+                    <button class="answer-button" data-index="2">Ответ 3</button>
+                    <button class="answer-button" data-index="3">Ответ 4</button>
+                </div>
+                <p id="result"></p>
+                <button id="next-question-button">Следующий вопрос</button>
+                <p id="score">Счет: 0</p>
+            </section>
+        </main>
+    </main>
+
+    <footer>
+        <p>Название Команды - AI Hackathon</p>
+         <p><a href="https://github.com/ItsDersty/ItsDersty.github.io" target="_blank">Посмотреть код на GitHub</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
